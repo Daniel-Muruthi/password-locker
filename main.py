@@ -6,7 +6,13 @@ from test import testUsers
 def showCredentials():
 
     return (User_Credentials.showCredentials())
+def deleteCredentials():
+    return User_Credentials.credentialsList.remove()
 
+def findCredentials( username):
+    for credentials in User_Credentials.credentialsList:
+        if credentials.username == username:
+            return credentials
 
 
 def main():
@@ -17,7 +23,7 @@ def main():
         print("Do you wish to proceed? (answer with 'yes' or 'no')")
         proceed_answer=input()
         if (proceed_answer=='yes'):
-            print("Kindly use these short codes to access out services : 'cua' - To create new password locker account, 'lga' - To login into your password locker account, 'dua' - To display user accounts or 'ex' - To exit your account")
+            print("Kindly use these short codes to access out services : 'cua' - To create new password locker account, 'lga' - To login into your password locker account, 'dua' - To display user accounts, 'del'- to delete an account or 'ex' - To exit your account")
 
             short_code = input().lower()
             #Taking service input codes 
@@ -113,6 +119,24 @@ def main():
                     print(f"Hello {username}. Welcome back! You're account is active")
                 else:
                     return print("You do not seem to have an account with us. Open an account by inputing 'cua' ")
+
+
+            elif short_code == 'del':
+                print("Warning this process will delete your credentials")
+                print("Enter The userName to delete account")
+                username = input()
+
+                if findCredentials(username):
+                    foundCredentials = findCredentials(username)
+
+                    foundCredentials.deleteCredentials()
+
+                    print (f"Your previous {foundCredentials.userAccount} Account has been successfully deleted")
+                else:
+
+                    print("The Account credentials you are looking for do not exist")
+
+
 
 
 
