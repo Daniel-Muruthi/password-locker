@@ -63,9 +63,18 @@ def main():
                     
 
 
+            elif short_code == 'dua':
+                print(f"Hello {new_username}. Here is a list of your credentials")
+                
+                while True:
+
+                    for credential in User_Credentials.showCredentials():
+                        print(credential.new_username)
+                while False:
+                    print("There are no credentials associated with this username")
 
 
-
+            
             elif short_code == 'lga':
                 print("welcome to the login page")
                 print("Please enter your name")
