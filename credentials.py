@@ -9,11 +9,11 @@ class User_Credentials:
 
     credentialsList = []
 
-    def __init__(self, userAccount, username, passcode):
+    def __init__(self, userAccount, username, password):
         
         self.userAccount = userAccount
         self.username = username
-        self.passcode = passcode
+        self.password = password
 
 
     #This will find user credentials
@@ -31,9 +31,9 @@ class User_Credentials:
 
     #This will verify a user based on recorded username & passcode
     @classmethod
-    def verifyUser(cls, username, passcode):
+    def verifyUser(cls, username, password):
         for user in User.userList:
-            if user.username == username and user.passcode == passcode:
+            if user.username == username and user.password == password:
                 verifyUser = user.username
             return verifyUser
 
@@ -44,5 +44,5 @@ class User_Credentials:
         User_Credentials.credentialsList.remove(self)
 
     def generatePasscode(length=8):
-        passcode=string.hexdigits + string.ascii_lowercase + string.ascii_uppercase
-        return "".join(random.choice(passcode)for i in range(length))
+        password=string.hexdigits + string.ascii_lowercase + string.ascii_uppercase
+        return "".join(random.choice(password)for i in range(length))

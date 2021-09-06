@@ -1,4 +1,6 @@
 from user import User
+from credentials import User_Credentials
+import test
 
 
 def main():
@@ -14,37 +16,53 @@ def main():
             short_code = input().lower()
             #Taking service input codes 
             if (short_code) == 'cua':
+                print("Enter Account Name")
+                new_account = input().lower()
                 print("Enter a Username")
                 new_username = input()
-                print("Enter a password")
-                new_password = input()
-                print(f"{new_username} confirm your password")
-                confirm_password = input()
-
-                if (confirm_password != new_password):
-                    print("Password do not match. Please try again")
-                    print("Enter a password")
-                    new_password = input()
+                print("To input your own password reply with 'self'. To use a randomly generated password reply with 'free'")
+                new_password = input().lower()
+                if (new_password == 'self'):
+                    print("Enter your password")
+                    password=input()
                     print(f"{new_username} confirm your password")
                     confirm_password = input()
-                else:
-                    print(f"Welcome {new_username} to your new account. Your account has been created successflully")
-                    print("Log into your account")
-                    print("Enter Username")
-                    new_login_username=input()
-                    print("Enter you password")
-                    new_login_password= input() 
+                    if (confirm_password != password):
+                        print("Password do not match. Please try again")
+                        print("Enter a password")
+                        password = input()
+                        print(f"{new_username} confirm your password")
+                        confirm_password = input()
+                    else:
+                        print(f" You have set '{password}' as your password")
+                        print(f"Welcome {new_username} to your new account. Your account has been created successflully")
+                        print("Log into your account")
+                        print("Enter Username")
+                        new_login_username=input()
+                        print("Enter you password")
+                        new_login_password= input() 
+                        while (new_login_username != new_username or new_login_password != new_password):
+                            print("Your login credentials do not match any account...try again") 
+                            print("Enter Username")
+                            new_login_username=input()
+                            print("Enter you password")
+                            new_login_password= input() 
 
-                while (new_login_username != new_username or new_login_password != new_password):
-                    print("Your login credentials do not match any account...try again") 
-                    print("Enter Username")
-                    new_login_username=input()
-                    print("Enter you password")
-                    new_login_password= input() 
+
+                        else:
+                            print(f"Greetings {new_username}! Welcome to your account")
 
 
-                else:
-                    print(f"Greetings {new_username}! Welcome to your account")
+                elif(new_password == 'free'):
+                    password = User_Credentials.generatePasscode()
+                    print(f"Your password has been set to {password}")
+
+                User_Credentials.saveCredentials(new_account, new_username, password)
+                    
+
+
+
+
 
             elif short_code == 'lga':
                 print("welcome to the login page")
