@@ -2,7 +2,7 @@ from user import User
 import random
 import string
 
-class User_Credentials:
+class User_Credentials():
     """
     This will create an instance of an object
     """

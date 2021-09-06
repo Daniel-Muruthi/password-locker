@@ -3,6 +3,9 @@ from credentials import User_Credentials
 import test
 
 
+
+
+
 def main():
 
     print("Hello there and welcome to Password Locker!")
@@ -59,18 +62,35 @@ def main():
 
                 User_Credentials.saveCredentials(User_Credentials.createNewCredentials( new_account, new_username, password))
 
-                print(f"Your account {new_account} is Active!")
+                print(f"{new_username} your account {new_account} is Active!")
+
+                print("Do you wish to view your credentials? (Answer with 'yes' or 'no')")
+                response=input().lower()
+                if response == 'yes':
+                    if User_Credentials.showCredentials():
+
+                        for credentials in User_Credentials.showCredentials(new_account):
+                            return print(credentials.new_account)
+                    else :
+                        print("There are no credentials associated with this username")
+
+                elif response == 'no':
+                    print("Okay")
+
+                else:
+                    print("Error! your input is not recognized")
+                    break
                     
 
 
             elif short_code == 'dua':
-                print(f"Hello {new_username}. Here is a list of your credentials")
+                print(f"Hello. Here is a list of your credentials")
                 
-                while True:
+                if User_Credentials.showCredentials():
 
-                    for credential in User_Credentials.showCredentials():
-                        print(credential.new_username)
-                while False:
+                    for credentials in User_Credentials.showCredentials():
+                        print(credentials)
+                else :
                     print("There are no credentials associated with this username")
 
 
@@ -100,7 +120,8 @@ def main():
 
 
         else:
-            print("Thank you for visiting us. Thanks!")
+            return print("Thank you for visiting us. Thanks!")
+            
 
 
 if __name__=="__main__":
