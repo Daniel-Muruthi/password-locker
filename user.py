@@ -17,6 +17,15 @@ class User:
         """
         User.userList.append(self) 
 
+    def findUser(cls, username):
+        """
+        This will aid find user in userList
+        """
+
+        for user in cls.userList:
+            if (user.username ==username):
+                return user
+
     def deleteUser(self):
 
         """
@@ -26,4 +35,7 @@ class User:
     
     @classmethod
     def user_accounts(cls):
+        """
+        This will return all items/data in the userList
+        """
         return cls.userList
