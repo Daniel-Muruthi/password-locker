@@ -5,11 +5,23 @@ from test import testUsers
 
 def showCredentials():
 
+    """
+    This function will be used to display an accounts credentials
+    """ 
+
     return (User_Credentials.showCredentials())
 def deleteCredentials():
+
+    """
+    This method will be used to delete an account and its credentials
+    """
     return User_Credentials.credentialsList.remove()
 
 def findCredentials( username):
+
+    """
+    This will be used to select only userAccount credential
+    """
     for credentials in User_Credentials.credentialsList:
         if credentials.username == username:
             return credentials
@@ -63,11 +75,24 @@ def main():
 
                         else:
                             print(f"Greetings {new_username}! Welcome to your account")
+                            
 
 
                 elif(new_password == 'free'):
                     password = User_Credentials.generatePasscode()
                     print(f"Your password has been set to {password}")
+                    print(f"Welcome {new_username} to your new account. Your account has been created successflully")
+                    print("Log into your account")
+                    print("Enter Username")
+                    new_login_username=input()
+                    print("Enter you password")
+                    new_login_password= input() 
+                    while (new_login_username != new_username or new_login_password != password):
+                        print("Your login credentials do not match any account...try again") 
+                        print("Enter Username")
+                        new_login_username=input()
+                        print("Enter you password")
+                        new_login_password= input()
 
                 User_Credentials.saveCredentials(User_Credentials.createNewCredentials( new_account, new_username, password))
 
