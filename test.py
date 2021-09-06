@@ -10,6 +10,10 @@ class testUsers(unittest.TestCase):
         """
         self.credentialsList = User_Credentials("facebook", "daniel", "12345678")
     def tearDown(self):
+
+        '''
+        tearDown method that does clean up after each test case has run.
+        '''
         User_Credentials.credentialsList = []
 
     def test_init(self):
