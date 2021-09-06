@@ -6,6 +6,9 @@ def showCredentials():
 
     return User_Credentials.showCredentials()
 
+def findCredentials(username):
+    return User_Credentials.findCredentials(username)
+
 
 
 def main():
@@ -90,12 +93,14 @@ def main():
             elif short_code == 'dua':
                 print(f"Hello. Here is a list of your credentials")
                 
-                if User_Credentials.showCredentials():
+                if showCredentials():
 
-                    for credentials in User_Credentials.showCredentials():
-                        print(credentials)
+                    for credentials in showCredentials():
+                        print(f"Username : {credentials.username}")
+                        print(f"Account : {credentials.userAccount}")
+                        print(f"Password : {credentials.password}")
                 else :
-                    print("There are no credentials associated with this username")
+                    print("You are yet to log in to your account")
 
 
             
@@ -106,12 +111,46 @@ def main():
                 print("Please enter your password")
                 saved_password = input()
 
-                while (saved_username !="Daniel-Muruthi" or saved_password != "12345678"):
+                if (saved_username !="Daniel-Muruthi" or saved_password != "12345678"):
                     print("Wrong username or password! Please enter correct credentials")
                     print("Please enter your name")
                     saved_username = input()
                     print("Please enter your password")
                     saved_password = input()
+                    if(saved_username == "Daniel-Muruthi" and saved_password == "12345678"):
+                        print("Do you wish to view your credentials? (Answer with 'yes' or 'no')")
+                        response=input().lower()
+                        if response == 'yes':
+                            if findCredentials(saved_username):
+                                findCredentials(saved_username)
+                            else :
+                                print("There are no credentials associated with this username")
+
+                        elif response == 'no':
+                            print("Okay")
+
+                        else:
+                            print("Error! your input is not recognized")
+                            break
+                elif(saved_username == "Daniel-Muruthi" and saved_password == "12345678"):
+                    print("Do you wish to view your credentials? (Answer with 'yes' or 'no')")
+                    response=input().lower()
+                    if response == 'yes':
+                        if showCredentials():
+
+                            for credentials in showCredentials():
+                                print(f"Username : {credentials.username}")
+                                print(f"Account : {credentials.userAccount}")
+                                print(f"Password : {credentials.password}")
+                        else :
+                            print("There are no credentials associated with this username")
+
+                    elif response == 'no':
+                        print("Okay")
+
+                    else:
+                        print("Error! your input is not recognized")
+                        break
 
             elif short_code == 'ex':
                 print(f"Goodble {new_username}")
@@ -124,7 +163,7 @@ def main():
 
 
         else:
-            return print("Thank you for visiting us. Thanks!")
+            return print("Thank you for visiting us. Goodbye!")
             
 
 

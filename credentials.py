@@ -23,9 +23,9 @@ class User_Credentials():
 
     #This will find user credentials
     @classmethod
-    def findCredentials(cls, account):
+    def findCredentials(cls, username):
         for credentials in cls.credentialsList:
-            if credentials.account == account:
+            if credentials.username == username:
                 return credentials
 
     #This will display user credentials           
