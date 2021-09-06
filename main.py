@@ -2,7 +2,9 @@ from user import User
 from credentials import User_Credentials
 import test
 
+def showCredentials():
 
+    return User_Credentials.showCredentials()
 
 
 
@@ -67,10 +69,12 @@ def main():
                 print("Do you wish to view your credentials? (Answer with 'yes' or 'no')")
                 response=input().lower()
                 if response == 'yes':
-                    if User_Credentials.showCredentials():
+                    if showCredentials():
 
-                        for credentials in User_Credentials.showCredentials(new_account):
-                            return print(credentials.new_account)
+                        for credentials in showCredentials():
+                            print(f"Username : {credentials.username}")
+                            print(f"Account : {credentials.userAccount}")
+                            print(f"Password : {credentials.password}")
                     else :
                         print("There are no credentials associated with this username")
 
