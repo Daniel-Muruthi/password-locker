@@ -107,6 +107,7 @@ def main():
                             print(f"Username : {credentials.username}")
                             print(f"Account : {credentials.userAccount}")
                             print(f"Password : {credentials.password}")
+                            print("*"*20)
                     else :
                         print("There are no credentials associated with this username")
 
@@ -128,6 +129,7 @@ def main():
                         print(f"Username : {credentials.username}")
                         print(f"Account : {credentials.userAccount}")
                         print(f"Password : {credentials.password}")
+                        print("*"*20)
                 else :
                     print("You are yet to log in to your account")
 
