@@ -57,7 +57,9 @@ def main():
                     password = User_Credentials.generatePasscode()
                     print(f"Your password has been set to {password}")
 
-                User_Credentials.saveCredentials(new_account, new_username, password)
+                User_Credentials.saveCredentials(User_Credentials.createNewCredentials( new_account, new_username, password))
+
+                print(f"Your account {new_account} is Active!")
                     
 
 

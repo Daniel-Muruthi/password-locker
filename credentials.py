@@ -15,6 +15,11 @@ class User_Credentials:
         self.username = username
         self.password = password
 
+    
+    #This will create new credentials
+    def createNewCredentials(userAccount, username, password):
+        newCredentials = User_Credentials(userAccount, username, password)
+        return newCredentials
 
     #This will find user credentials
     @classmethod
