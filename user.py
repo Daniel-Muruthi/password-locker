@@ -15,4 +15,15 @@ class User:
         """
         This will add a new user and their credentials to the userList dictionary
         """
-        User.userlist.append(self) 
+        User.userList.append(self) 
+
+    def deleteUser(self):
+
+        """
+        This will delete both an existing user and their credentials in the userList dictionary
+        """
+        User.userList.remove(self)
+    
+    @classmethod
+    def user_accounts(cls):
+        return cls.userList
