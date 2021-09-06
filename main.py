@@ -47,7 +47,7 @@ def main():
                         new_login_username=input()
                         print("Enter you password")
                         new_login_password= input() 
-                        while (new_login_username != new_username or new_login_password != new_password):
+                        while (new_login_username != new_username or new_login_password != password):
                             print("Your login credentials do not match any account...try again") 
                             print("Enter Username")
                             new_login_username=input()
@@ -105,54 +105,16 @@ def main():
             elif short_code == 'lga':
                 print("welcome to the login page")
                 print("Please enter your name")
-                saved_username = input()
+                username = input()
                 print("Please enter your password")
-                saved_password = input()
+                password = input()
 
-                if (saved_username !="Daniel-Muruthi" or saved_password != "12345678"):
-                    print("Wrong username or password! Please enter correct credentials")
-                    print("Please enter your name")
-                    saved_username = input()
-                    print("Please enter your password")
-                    saved_password = input()
-                    if(saved_username == "Daniel-Muruthi" and saved_password == "12345678"):
-                        print("Do you wish to view your credentials? (Answer with 'yes' or 'no')")
-                        response=input().lower()
-                        if response == 'yes':
-                            if showCredentials():
+                if User_Credentials.verifyUser(username,password):
+                    print(f"Hello {username}. Welcome back! You're account is active")
+                else:
+                    return print("You do not seem to have an account with us. Open an account by inputing 'cua' ")
 
-                                for credentials in showCredentials():
-                                    print(f"Username : {credentials.username}")
-                                    print(f"Account : {credentials.userAccount}")
-                                    print(f"Password : {credentials.password}")
-                            else :
-                                print("There are no credentials associated with this username")
 
-                        elif response == 'no':
-                            print("Okay")
-
-                        else:
-                            print("Error! your input is not recognized")
-                        break
-                elif(saved_username == "Daniel-Muruthi" and saved_password == "12345678"):
-                    print("Do you wish to view your credentials? (Answer with 'yes' or 'no')")
-                    response=input().lower()
-                    if response == 'yes':
-                        if showCredentials():
-
-                            for credentials in showCredentials():
-                                print(f"Username : {credentials.username}")
-                                print(f"Account : {credentials.userAccount}")
-                                print(f"Password : {credentials.password}")
-                        else :
-                            print("There are no credentials associated with this username")
-
-                    elif response == 'no':
-                        print("Okay")
-
-                    else:
-                        print("Error! your input is not recognized")
-                        break
 
             elif short_code == 'ex':
                 print(f"Goodble {new_username}")
