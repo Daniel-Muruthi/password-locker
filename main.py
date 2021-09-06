@@ -61,6 +61,7 @@ def main():
                     saved_password = input()
 
             elif short_code == 'ex':
+                print(f"Goodble {new_username}")
                 break
 
             else:
