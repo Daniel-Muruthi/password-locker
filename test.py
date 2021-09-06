@@ -17,6 +17,17 @@ class testUsers(unittest.TestCase):
         self.assertEqual(self.newUser.username, 'daniel')
         self.assertEqual(self.newUser.password, '12345678')
 
+    def test_saveUser(self):
+        self.newUser.saveUser()
+        self.assertEqual(len(User.userList),1)
+
+    def test_deleteUser(self):
+        self.newUser.saveUser()
+        defaultUser= User("Daniel-Muruthi", "12345678")
+        defaultUser.saveUser()
+
+        self.newUser.deleteUser()
+        self.assertEqual(len(User.userList),1)
 
 if __name__ == "__main__":
     unittest.main()
