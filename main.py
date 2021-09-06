@@ -1,13 +1,11 @@
+#!/usr/bin/env python3
 from user import User
 from credentials import User_Credentials
-import test
+from test import testUsers
 
 def showCredentials():
 
-    return User_Credentials.showCredentials()
-
-def findCredentials(username):
-    return User_Credentials.findCredentials(username)
+    return (User_Credentials.showCredentials())
 
 
 
@@ -121,8 +119,12 @@ def main():
                         print("Do you wish to view your credentials? (Answer with 'yes' or 'no')")
                         response=input().lower()
                         if response == 'yes':
-                            if findCredentials(saved_username):
-                                findCredentials(saved_username)
+                            if showCredentials():
+
+                                for credentials in showCredentials():
+                                    print(f"Username : {credentials.username}")
+                                    print(f"Account : {credentials.userAccount}")
+                                    print(f"Password : {credentials.password}")
                             else :
                                 print("There are no credentials associated with this username")
 
@@ -131,7 +133,7 @@ def main():
 
                         else:
                             print("Error! your input is not recognized")
-                            break
+                        break
                 elif(saved_username == "Daniel-Muruthi" and saved_password == "12345678"):
                     print("Do you wish to view your credentials? (Answer with 'yes' or 'no')")
                     response=input().lower()
