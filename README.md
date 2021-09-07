@@ -6,7 +6,7 @@
 
 ## Description
 
-It's a flask/python built application that allows users to create accounts, log in, view their various account credentials and be able to successfully delete credentials which they don't need.
+It's a simple flask/python built application that allows users to create accounts, log in, view their various account credentials and be able to successfully delete credentials which they don't need.
 
 ## Setup/Installation Requirements
 
@@ -24,7 +24,10 @@ This project has been written using python's flask frameworks. It has utilized c
 
 ## Execution
 
-On your terminal, CD to the folder carrying the files. Run this code (chmod +x main.py)  followed by ./main.py if you wish to run it from your Terminal
+On your terminal, CD to the folder carrying the files. 
+- Run this code - chmod +x main.py  
+- Then ./main.py still from your Terminal
+- To create multiple accounts: select 'cua' and follow the whole   process till viewing your credentials, then proceed by responding 'yes' and select 'cua' again.
 
 ## Support and contact details
 
