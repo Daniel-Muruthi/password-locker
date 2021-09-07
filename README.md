@@ -23,8 +23,8 @@ No bugs observed at the moment. In case of any reach out to me via the email dow
 This project has been written using python's flask frameworks. It has utilized classes including a test class i.e., test.py.
 
 ## Execution
-
-On your terminal, CD to the folder carrying the files. 
+Start by cloning this repo and once that is successfully done
+- On your terminal, CD to the folder carrying the files. 
 - Run this code - chmod +x main.py  
 - Then ./main.py still from your Terminal
 - To create multiple accounts: select 'cua' and follow the whole   process till viewing your credentials, then proceed by responding 'yes' and select 'cua' again.
